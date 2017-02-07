@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Vote App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+        <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+
+
+
+    <body>
+      <div class="container-fluid" id="head">
+        <div>
+          <p>
+            Welcome, <span id="display-name"></span>!
+          </p>
+          <a class="menu" href="/profile">Profile</a>
+          <span>|</span>
+          <a class="menu" href="/logout">Logout</a>
+        </div>
+
+        <div class="row" id="banner">
+          <div class="col-xs-3 col-md-3 col-sm-3 col-lg-3" id="home">
+            <a href="/" style="color:#33ff33">Home</a>
+          </div>
+          <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+          </div>
+
+          <div class="col-xs-1 col-md-1 col-sm-1 col-lg-1"  >
+              <a href="/newpoll" style="color:#33ff33" id="newpoll">New Poll</a>
+          </div>
+
+        </div>
+
+        <p class="vote-app">Vote app</p>
+
+        <div id="voteContent">
+
+        </div>
+      </div>
+
+      <script type="text/javascript">
+          function doPreview(form)
+          {
+            var data=form.question.value;
+            var voteContent=document.querySelector("#voteContent");
+            voteContent.innerHTML=data;
+          }
+      </script>
+
+
+        <script type="text/javascript" src="../common/ajax-functions.js"></script>
+        <script type="text/javascript" src="../controllers/voteControllers.client.js"></script>
+        <script type="text/javascript" src="../controllers/clickControllers.client.js"></script>
+        <script type="text/javascript" src="../controllers/userController.client.js"></script>
+    </body>
+
+</html>

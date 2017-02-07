@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Vote App</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+        <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    </head>
+
+
+
+    <body>
+      <div class="container-fluid" id="head">
+        <div>
+          <p>
+            Welcome, <span id="display-name"></span>!
+          </p>
+          <a class="menu" href="/profile">Profile</a>
+          <span>|</span>
+          <a class="menu" href="/logout">Logout</a>
+        </div>
+
+        <div class="row" id="banner">
+          <div class="col-xs-3 col-md-3 col-sm-3 col-lg-3" id="home">
+            <a href="/" style="color:#33ff33">Home</a>
+          </div>
+          <div class="col-xs-8 col-md-8 col-sm-8 col-lg-8">
+          </div>
+          <div class="col-xs-1 col-md-1 col-sm-1 col-lg-1"  >
+            <a href="/mypolls" style="color:#33ff33" id="mypolls">My Polls</a>
+          </div>
+
+
+        </div>
+
+        <p class="vote-app">Vote app</p>
+
+
+        <div class="row">
+          <div class="col-xs-1 col-md-1 col-sm-1 col-lg-1">
+          </div>
+          <div class="col-xs-10 col-md-10 col-sm-10 col-lg-10">
+          <form  action="/" method="post">
+            <div id="divnewpoll" style="text-align:center;">
+              <label > New : </label>
+              <input name="question" type="text" id="createpoll" placeholder="Enter a new poll">
+              <br>
+              <label >Option:</label>
+              <input name="optional" type="text" id="optional1" placeholder="Enter a optional">
+              <br>
+              <label >Option:</label>
+              <input name="optional" type="text" id="optional2" placeholder="Enter a optional">
+              <br>
+              <label></label>
+              <span id="add"></span>
+              <button type="button" onclick="more()" id="more-optional"><span class="glyphicon glyphicon-plus"></span>More</button>
+              <hr>
+
+          </div>
+          <button type="submit" class="btn btn-default" id="commit" >Submit</button>
+        </form>
+
+          </div>
+
+          </div>
+          <div class="col-xs-1 col-md-1 col-sm-1 col-lg-1">
+          </div>
+        </div>
+
+      </div>
+<!-- script them option -->
+<script>
+  var id=3;
+  $.fn.changid = function() {
+    return this.each(function(){
+      var new_id = 'optional'+id;
+      //var newname=new_id;
+      $(this).attr('id',new_id);
+      //$(this).attr('name',newname);
+    });
+  };
+
+  function more(){
+    var label="<label>Option: </label>";
+    var input="<input name=optional type=text id=optional3 placeholder=Enter a optional>";
+    $("#optional3").changid();
+    $("#add").append(label);
+    $("#add").append(input);
+    $("#add").append("<br>");
+    id++;
+
+  }
+</script>
+
+<script type="text/javascript" src="common/ajax-functions.js"></script>
+<script type="text/javascript" src="controllers/clickControllers.client.js"></script>
+<!--<script type="text/javascript" src="controllers/userController.client.js"></script> -->
+<!--<script type="text/javascript" src="controllers/submitPoll.client.js"></script> -->
+
+</html>
